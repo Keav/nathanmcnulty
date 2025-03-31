@@ -151,6 +151,17 @@ $IsSomethingFalse | ForEach-Object {
     Remove-Variable something,groupId,members,users,add,remove,values -ErrorAction SilentlyContinue
 }
 
+# Define the things you want to maintain groups for when FALSE, delete or comment out ones you don't want
+$IsSomethingTrue = @(
+    "IsAdmin",
+    "IsMfaCapable",
+    "IsMfaRegistered",
+    "IsPasswordlessCapable",
+    "IsSsprCapable",
+    "IsSsprEnabled",
+    "IsSsprRegistered"
+)
+
 $IsSomethingTrue | ForEach-Object {
     # Store value in a variable for use in loops and filters
     $something = $_
